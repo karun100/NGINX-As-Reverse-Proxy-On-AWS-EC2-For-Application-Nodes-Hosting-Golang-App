@@ -58,7 +58,7 @@ Hi there, I'm served from <application node hostname>!
    
   - When prompted for **key pair** either choose an existing one or create a new key pair.This private key file will be used to connect by SSH to the instance.
   
-  - Now will be installing nginx on 1 x AWS EC2 Instance as below:-
+- Now will be installing nginx on 1 x AWS EC2 Instance as below:-
 
 ```
 sudo apt-get install -y nginx
