@@ -54,5 +54,6 @@ Hi there, I'm served from <application node hostname>!
 
 - Launch 1 x AWS EC2 Instances as web node to deploy nginx.To create the setup have choosen AMI (Amazon Machine Image) Ubuntu 16.04 Server.However any other Linux flavor can also be used.
 
-   - Configure **"Security Groups"** to expose the port number   frontend or web server will be listening on.Have choosen here  same **port number 8484** for brevity keeping web server and application node listening on same **port**. **Custom TCP** and **rule 0.0.0.0/0**  will be applied on the **INCOMING traffic** in the **Source** column. It means anyone anywhere can connect via the specified port i.e **8484**.For **SSH Access** port **22** will already be allowed by default.
+   - Configure **"Security Groups"** to expose the port number frontend or web server will be listening on.Have choosen here  same **port number 8484** for brevity keeping web server and application node listening on same **port**. Hence **port number 8484** will be enabled under **Custom TCP** and **rule 0.0.0.0/0**  will be applied on the **INCOMING traffic** in the **Source** column. It means anyone anywhere can connect to the web server via the specified port i.e **8484**.For **SSH Access** port **22** will already be allowed by default.
+   
   - When prompted for **key pair** either choose an existing one or create a new key pair.This private key file will be used to connect by SSH to the instance.
