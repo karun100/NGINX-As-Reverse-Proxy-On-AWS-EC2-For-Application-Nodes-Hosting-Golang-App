@@ -63,7 +63,7 @@ Hi there, I'm served from <application node hostname>!
 ```
 sudo apt-get install -y nginx
 ```
-- Check the status of nginx installed using below command. Also on trying to access EC2 DNS hostname in a web browser on port 8484, it shows ‘Welcome to nginx!’. This means that nginx is running
+- Check the status of nginx installed using below command. Also on trying to access EC2 DNS name in a web browser on port 8484, it shows ‘Welcome to nginx!’. This means that nginx is running
 
 ```
 sudo systemctl status nginx 
