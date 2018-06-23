@@ -50,4 +50,4 @@ func main() {
 Hi there, I'm served from <application node hostname>!
 ```
 
-
+2.**Nginx As Reverse Proxy to be deployed on a web node.It should load balance the traffic to 2 app servers or nodes deployed above hosting Golang app.
