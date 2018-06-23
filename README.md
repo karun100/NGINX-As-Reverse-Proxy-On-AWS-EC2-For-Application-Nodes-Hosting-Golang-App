@@ -1,1 +1,53 @@
 # NGINX-As-Reverse-Proxy-On-AWS-EC2-For-Application-Nodes-Hosting-Golang-App
+
+1.**First will deploy Golang app to 2 x application nodes on Amazon EC2.**
+
+
+- Launch 2 x AWS EC2 Instances as application nodes.To create the setup have choosen AMI (Amazon Machine Image).However any other Linux flavor can be used.
+
+   - Configure **"Security Groups"** to expose the port number server will be listening on.As per the Golang application code used in this example **port number 8484** will be enabled under **Custom TCP** and **rule 0.0.0.0/0**  will be applied on the **INCOMING traffic** in the **Source** column. It means anyone anywhere can connect via the specified port i.e **8484**.For **SSH Access** port **22** will already be allowed by default.
+  - When prompted for **key pair** either choose an existing one or create a new key pair.This private key file will be used to connect by SSH to the instance.
+  
+- Now will be installing Golang on 2 x AWS EC2 Instances using **yum** package manager as below:-
+
+```
+sudo yum update -y
+sudo yum install -y golang
+```
+- Need to set up Go environment variables. Mainly will need to setup 3 environment variables i.e GOROOT, GOPATH and PATH.**GOPATH** can be any directory on the system whereas **GOROOT** is where **GO** package is installed. Below commands can be added in ‘~/.bash_profile’ file as well to make this startup configuration permanent.To verify environment vaiables are set correctly can use **go env** etc. 
+
+```
+export GOROOT=/usr/lib/golang
+export GOPATH=$HOME/projects
+export PATH=$PATH:$GOROOT/bin
+```
+
+- As final step on application nodes or backend servers will be deploying Go App as per the below code in a **.go** file.Application node will be listening on the **port number 8484** as per **Security Group** policy.Now simply run Go App using command **go run <application_name>.go**.
+
+```
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"os"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	h, _ := os.Hostname()
+	fmt.Fprintf(w, "Hi there, I'm served from %s!", h)
+}
+
+func main() {
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8484", nil)
+}
+```
+
+- To verify Go App installed correctly and appliction node listening correctly on **port number 8484** in an web browser hit enter to the DNS name of AWS EC2 instances.In my case on sending a HTTP request to the web node returned correctly the response as below:-
+
+```
+Hi there, I'm served from <application node hostname>!
+```
+
+
