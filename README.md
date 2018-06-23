@@ -51,3 +51,8 @@ Hi there, I'm served from <application node hostname>!
 ```
 
 2.**Nginx As Reverse Proxy to be deployed on a web node.It should load balance the traffic to 2 app servers or nodes deployed above hosting Golang app**.
+
+- Launch 1 x AWS EC2 Instances as web node to deploy nginx.To create the setup have choosen AMI (Amazon Machine Image) Ubuntu 16.04 Server.However any other Linux flavor can also be used.
+
+   - Configure **"Security Groups"** to expose the port number server will be listening on.As per the Golang application code used in this example **port number 8484** will be enabled under **Custom TCP** and **rule 0.0.0.0/0**  will be applied on the **INCOMING traffic** in the **Source** column. It means anyone anywhere can connect via the specified port i.e **8484**.For **SSH Access** port **22** will already be allowed by default.
+  - When prompted for **key pair** either choose an existing one or create a new key pair.This private key file will be used to connect
