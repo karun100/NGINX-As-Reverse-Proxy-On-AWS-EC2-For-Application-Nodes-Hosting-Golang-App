@@ -68,5 +68,5 @@ sudo apt-get install -y nginx
 ```
 sudo systemctl status nginx 
 ```
--Nginx server configuration is stored in ‘etc/nginx’ and the main file is nginx.conf. Also each of the sites that we enable is available in ‘sites-available’.
+- Nginx server configuration is stored in ‘etc/nginx’ and the main file is nginx.conf. Also each of the sites that we enable is available in ‘sites-available’.
 
