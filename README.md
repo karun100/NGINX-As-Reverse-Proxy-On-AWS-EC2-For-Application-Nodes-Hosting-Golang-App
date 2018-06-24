@@ -94,7 +94,7 @@ server {
      }		
 ```
 
-- Finally need to stop, start nginx and check it’s status.If it is running properly,then will not see any issue in **nginx status**.
+- Finally need to stop, start nginx and check it’s status.If it is running properly,then will not see any issue in **nginx status**.Now Now need to hit in web browser DNS name of the web node on **port number 8484** and HTTP request  should redirect to one of the application node.In my case able to load-balance HTTP request to app node in a round-robin manner. 
 
 ```
 sudo systemctl stop nginx
