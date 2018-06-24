@@ -73,5 +73,9 @@ sudo systemctl status nginx
 ```
 ls -la sites-enabled/
 ```
+- Edit nginx default site configuration.Need to add upstream section where we define our backend i.e application nodes. Also will use proxypass setting to pass the traffic that is coming to port 8484 on web node to the backend or application nodes running on port 8484.Nginx server configuration is stored in **‘etc/nginx’** and the main file is **nginx.conf**. Also each of the sites that we enable is available in **‘sites-available’**.We can use a separate file for each virtual domain or site hosting.There is only one site as default and to check if it is enabled please run command as below:-
 
+```
+ls -la sites-enabled/
+```
 
