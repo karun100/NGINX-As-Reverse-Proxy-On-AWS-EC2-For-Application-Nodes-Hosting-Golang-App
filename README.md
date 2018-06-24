@@ -83,12 +83,10 @@ upstream backend {
         }
 ```
 
-- Edit nginx default site configuration to add upstream section where we define our backend i.e application nodes. Also will use proxypass setting to pass the traffic that is coming to port 8484 on web node to the backend or application nodes running on port 8484.
+- Now define port number i.e. 8484 on which web app will be listening in the server block as below. Also will use proxypass setting to pass the traffic that is coming to port 8484 on web node to the backend or application nodes running on port 8484.
 
 ```
-$ sudo vi /etc/nginx/sites-available/default
-upstream backend {
-        server <application_node1_IP>:8484;
-	server <application_node2_IP>:8484;
-        }
+server {
+        listen 8484 default_server;
+        listen [::]:8484 default_server;
 ```
