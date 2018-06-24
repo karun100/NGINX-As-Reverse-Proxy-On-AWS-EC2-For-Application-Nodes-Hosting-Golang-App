@@ -83,10 +83,13 @@ upstream backend {
         }
 ```
 
-- Now define port number i.e. 8484 on which web app will be listening in the server block as below. Also will use proxypass setting to pass the traffic that is coming to port 8484 on web node to the backend or application nodes running on port 8484.
+- Now define port number i.e. 8484 on which web app will be listening in the server block as below. Also will use proxypass setting under server section to pass the traffic that is coming to port 8484 on web node to the backend or application nodes running on port 8484.
 
 ```
 server {
         listen 8484 default_server;
         listen [::]:8484 default_server;
+{
+     	proxy_pass http://backend;
+     }		
 ```
