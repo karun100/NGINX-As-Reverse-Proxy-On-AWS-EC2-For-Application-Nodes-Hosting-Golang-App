@@ -73,9 +73,22 @@ sudo systemctl status nginx
 ```
 ls -la sites-enabled/
 ```
-- Edit nginx default site configuration.Need to add upstream section where we define our backend i.e application nodes. Also will use proxypass setting to pass the traffic that is coming to port 8484 on web node to the backend or application nodes running on port 8484.
+- Edit nginx default site configuration to add upstream section where we define our backend i.e application nodes along with **port number 8484**.
 
 ```
-ls -la sites-enabled/
+$ sudo vi /etc/nginx/sites-available/default
+upstream backend {
+        server <application_node1_IP>:8484;
+	server <application_node2_IP>:8484;
+        }
 ```
 
+- Edit nginx default site configuration to add upstream section where we define our backend i.e application nodes. Also will use proxypass setting to pass the traffic that is coming to port 8484 on web node to the backend or application nodes running on port 8484.
+
+```
+$ sudo vi /etc/nginx/sites-available/default
+upstream backend {
+        server <application_node1_IP>:8484;
+	server <application_node2_IP>:8484;
+        }
+```
