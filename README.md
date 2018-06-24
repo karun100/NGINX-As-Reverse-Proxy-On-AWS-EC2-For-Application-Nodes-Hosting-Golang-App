@@ -93,3 +93,11 @@ server {
      	proxy_pass http://backend;
      }		
 ```
+
+- Finally need to stop, start nginx and check it’s status.If it is running properly,then will not see any issue in **nginx status**.
+
+```
+sudo systemctl stop nginx
+sudo systemctl start nginx
+sudo systemctl status nginx		
+```
